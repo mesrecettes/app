@@ -10,3 +10,39 @@ button{padding:6px 10px;margin-top:8px;cursor:pointer}
 .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center}
 .modal{background:white;padding:20px;border-radius:6px;max-width:600px;max-height:80vh;overflow:auto}
 a{color:#0b5fff}
+
+
+/* --- PATCH: hover effect for recipe-card + toggle button styles --- */
+.recipe-card {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 150ms ease, transform 150ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.recipe-card:hover,
+.recipe-card:focus {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  cursor: pointer;
+  outline: none;
+}
+.recipe-card:focus-visible {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 0 0 3px rgba(0,123,255,0.12);
+}
+.recipe-card a,
+.recipe-card button {
+  cursor: pointer;
+}
+#toggle-ingredients-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+  font-size: 0.95rem;
+}
+.hidden { display: none !important; }
+
