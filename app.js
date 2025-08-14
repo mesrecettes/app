@@ -16,7 +16,7 @@ document.head.appendChild(style);
 
 const e = React.createElement;
 
-const RECIPES_URL = "https://mesrecettes.github.io/app/recipes.json";
+const RECIPES_URL = "https://yumbook.github.io/app/recipes.json";
 let RECIPES = [];
 async function loadRecipes() {
     try {
