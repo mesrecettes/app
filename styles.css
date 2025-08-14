@@ -1,48 +1,64 @@
+#ingredients-filter { display: none; }
 
 body{font-family:sans-serif;margin:0;background:#f7f7fb;color:#111}
 .container{max-width:1100px;margin:auto;padding:20px}
 .controls{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-input,select{padding:6px}
+input{padding:6px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
 .card{background:#fff;padding:10px;border-radius:6px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
 .card img{width:100%;height:160px;object-fit:cover;border-radius:4px}
-button{padding:6px 10px;margin-top:8px;cursor:pointer}
+button{padding:6px 10px;margin-top: 0; align-self: center;cursor:pointer}
 .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center}
 .modal{background:white;padding:20px;border-radius:6px;max-width:600px;max-height:80vh;overflow:auto}
 a{color:#0b5fff}
 
-
-/* --- PATCH: hover effect for recipe-card + toggle button styles --- */
-.recipe-card {
-  display: block;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: box-shadow 150ms ease, transform 150ms ease;
-  -webkit-tap-highlight-color: transparent;
-}
-.recipe-card:hover,
-.recipe-card:focus {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  transform: translateY(-2px);
-  cursor: pointer;
-  outline: none;
-}
-.recipe-card:focus-visible {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.18), 0 0 0 3px rgba(0,123,255,0.12);
-}
-.recipe-card a,
-.recipe-card button {
-  cursor: pointer;
-}
-#toggle-ingredients-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.75rem;
-  border-radius: 6px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: white;
-  font-size: 0.95rem;
-}
 .hidden { display: none !important; }
 
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* More visible reset button styling */
+.reset-btn {
+  font-size: 1.4em;             /* slightly larger */
+  font-weight: 700;             /* bold */
+  color: #ffffff;               /* white icon */
+  background-color: #ff6b35;    /* warm orange/red background */
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 8px 10px;            /* bigger click area */
+  border-radius: 8px;
+  align-self: center;           /* center in flex row */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;                 /* match typical control height */
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  cursor: pointer;
+}
+
+/* Ensure the inner button text scales and stays centered */
+.reset-btn > * { display: inline-block; transform: translateZ(0); }
+
+
+
+
+
+
+
+.recipe-directions {
+    font-family: monospace;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
