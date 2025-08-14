@@ -89,7 +89,7 @@ return r.ingredients.some(ri => new RegExp(`\\b${escaped}\\b`, 'i').test(ri.toLo
 
   return e('div', {className:'container'},[
     e('h1', {style:{display:'flex', alignItems:'baseline', gap:'8px'}}, [
-  'Recipe Browser',
+  '🥗 Yum Book',
   e('span', {style:{fontSize:'0.8em', fontWeight:'normal', color:'#777', fontStyle:'italic', marginLeft:'8px'}}, 
     filtered.length + ' recipe' + (filtered.length > 1 ? 's' : '') + ' found'
   )
