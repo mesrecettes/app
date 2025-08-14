@@ -135,7 +135,7 @@ return r.ingredients.some(ri => new RegExp(`\\b${escaped}\\b`, 'i').test(ri.toLo
       )
     ),
     e('div', {className:'grid'}, filtered.map((r,i)=>
-      e('div', {key:i, className:'card', onClick:()=>setOpen(r), style:{cursor:'pointer'}}, [
+      e('div', {key:r.title || i, className:'card', onClick:()=>setOpen(r), style:{cursor:'pointer'}}, [
         r.photo_url ? e('img', {src:r.photo_url, alt:r.title, loading:"lazy", style:{cursor:'pointer'}, }) : null,
         e('h3', {style:{cursor:'pointer'}, }, r.title),
         e('div', {style:{display:'flex', justifyContent:'space-between', alignItems:'baseline'}}, [ e('span', null, r.course || ''), r.prep_time ? e('span', {style:{fontSize:'0.85em', color:'#999', fontStyle:'italic'}}, `(${r.prep_time})`) : null ])
@@ -167,7 +167,7 @@ return r.ingredients.some(ri => new RegExp(`\\b${escaped}\\b`, 'i').test(ri.toLo
             e('div', null, `Tags: ${Array.isArray(open.tags) ? open.tags.join(', ') : (open.tags || '')}`)
         ]),
         e('h4', null, 'Ingredients'),
-        e('ul', null, open.ingredients ? open.ingredients.map((ing,idx)=>e('li', {key:idx}, ing)) : null),
+        e('ul', null, open.ingredients ? open.ingredients.map((ing,idx)=>e('li', {key:ing || idx}, ing)) : null),
         e('h4', null, 'Directions'),
         e('div', { className: 'recipe-directions' }, open.directions || '')
       ])
